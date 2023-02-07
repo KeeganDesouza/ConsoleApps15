@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace ConsoleAppProject.App01
 {
@@ -10,15 +11,30 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
+
+        public const int FEET_IN_MILES = 5280;
+        
         private double miles;
 
         private double feet;
+
         /// <Summary>
         /// 
         /// <Summary>
         public void Run()
         {
-            Console.WriteLine("LOlo");
+            OutputHeading();
+            InputMiles();
+            CalculateFeet();
+            OutputFeet();
+        }
+
+        private void OutputHeading()
+        {
+            Console.WriteLine("\n-------------------------------------");
+            Console.WriteLine("        Convert Miles to Feet          ");
+            Console.WriteLine("          by Keegan De souza           ");
+            Console.WriteLine("-------------------------------------\n");
         }
 
         /// <Summary>
@@ -27,18 +43,17 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         private void InputMiles() 
         {
-            //Console.WriteLine("Please enter the number of miles > ");
-            //string value = Console.ReadLine();
-            //miles = Convert.ToDouble(value);
+            Console.WriteLine("Please enter the number of miles > ");
+            string value = Console.ReadLine();
+            miles = Convert.ToDouble(value);
         }
 
         /// <Summary>
         /// 
         /// <Summary>
-
         private void CalculateFeet()
         {
-
+            feet = miles * 5280;
         }
 
         /// <Summary>
@@ -46,7 +61,7 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         private void OutputFeet()
         {
-
+            Console.WriteLine(miles + " miles is " + feet + " feet!");
         }
 
     }
