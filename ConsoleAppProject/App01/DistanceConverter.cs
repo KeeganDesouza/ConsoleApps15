@@ -6,7 +6,7 @@ namespace ConsoleAppProject.App01
     /// Please describe the main features of this App
     /// </summary>
     /// <author>
-    /// Derek version 0.1
+    /// Keegan De souza 0.1
     /// </author>
     public class DistanceConverter
     {
@@ -18,7 +18,7 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         public void Run()
         {
-
+            Console.WriteLine("LOl");
         }
 
         /// <Summary>
@@ -27,7 +27,9 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         private void InputMiles() 
         {
-         
+            //Console.WriteLine("Please enter the number of miles > ");
+            //string value = Console.ReadLine();
+            //miles = Convert.ToDouble(value);
         }
 
         /// <Summary>
