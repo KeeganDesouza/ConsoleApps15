@@ -18,7 +18,7 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         public void Run()
         {
-            Console.WriteLine("LOl");
+            Console.WriteLine("LOlo");
         }
 
         /// <Summary>
