@@ -12,10 +12,12 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
+        //Distance conversion constants
         public const int FEET_IN_MILES = 5280;
 
         public const double METERS_IN_MILES = 1609.34;
 
+        //Distance variables
         private double miles;
 
         private double feet;
