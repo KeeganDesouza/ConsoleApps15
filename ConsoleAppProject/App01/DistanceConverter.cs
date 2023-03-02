@@ -81,6 +81,7 @@ namespace ConsoleAppProject.App01
             fromDistance = InputDistance($" Please enter the number of {fromUnit} > ");
             CalculateDistance();
             OutputDistance();
+            
         }
 
         //if statments used to calculate the conversion for the 6 diffrent distance.
@@ -271,18 +272,11 @@ namespace ConsoleAppProject.App01
         
         private static string DisplayChoices(string prompt)
         {
-            Console.WriteLine();
-            Console.WriteLine($" 1. {FEET}");
-            Console.WriteLine($" 2. {METERS}");
-            Console.WriteLine($" 3. {MILES}");
-            Console.WriteLine($" 4. {KILOMETERS}");
-            Console.WriteLine($" 5. {CENTIMETERS}");
-            Console.WriteLine($" 6. {MILIMETERS}");
-            Console.WriteLine();
+            string[] choices = { "Feet", "Meters", "Miles", "Kilometers", "Centimeters", "Milimeters" };
+            int choice = ConsoleHelper.SelectChoice(choices);
 
-            Console.Write(prompt);
-            string choice = Console.ReadLine();
-            return choice;
+            return Convert.ToString(choice);
+            
         }
 
         /// <Summary>
@@ -305,6 +299,7 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine($"\n {fromDistance}  {fromUnit}" +
                 $" is {toDistance} {toUnit}!\n");
+            Console.ReadLine();
         }
     }
 }

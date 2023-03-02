@@ -202,6 +202,7 @@ namespace ConsoleAppProject.App02
                 Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                     $"You are obese class III ");
             }
+           
 
             return Convert.ToString(Index);
 
@@ -215,6 +216,8 @@ namespace ConsoleAppProject.App02
         {
             ConsoleHelper.OutputTitle("If you are Black, Asian or other minority \n ethnic groups, you have a higher risk \n" +
                 "\n Adults 23.0 or more are at increased risk \n Adults 27.5 or more are at increased risk");
+
+            Console.ReadLine();
             return null;
         }
     }
