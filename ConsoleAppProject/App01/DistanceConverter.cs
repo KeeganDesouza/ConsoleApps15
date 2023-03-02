@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App01
 {
@@ -8,7 +9,7 @@ namespace ConsoleAppProject.App01
     /// output the equivalent distance in another unit (toUnit).
     /// </summary>
     /// <author>
-    /// Keegan De souza 0.6
+    /// Keegan De souza 0.7
     /// </author>
     public class DistanceConverter
     {
@@ -72,7 +73,8 @@ namespace ConsoleAppProject.App01
         public void ConvertDistance()
 
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading(" Distance Converter ");
+            Console.WriteLine();
             fromUnit = SelectUnit(" Select the from distance unit > ");
             toUnit = SelectUnit(" Select the to distance unit > ");
             Console.WriteLine($"\n Converting {fromUnit} to {toUnit}");
@@ -81,7 +83,7 @@ namespace ConsoleAppProject.App01
             OutputDistance();
         }
 
-        //if statments used to calculate the conversion for the 3 diffrent distance.
+        //if statments used to calculate the conversion for the 6 diffrent distance.
         private void CalculateDistance()
         {
             if(fromUnit == MILES && toUnit == FEET)
@@ -304,7 +306,7 @@ namespace ConsoleAppProject.App01
         /// Output a short description of the application
         /// and the name of the author.
         /// <Summary>
-        private void OutputHeading()
+        private void OutputHeading(string title)
         {
             Console.WriteLine("\n-------------------------------------");
             Console.WriteLine("        Distance converter         ");
