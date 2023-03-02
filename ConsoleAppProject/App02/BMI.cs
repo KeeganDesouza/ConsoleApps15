@@ -81,7 +81,7 @@ namespace ConsoleAppProject.App02
                 GetHealthMessage();
             }
 
-            // This code outputs the health message as a string 
+           
             
             // This code outputs the bam message as a string
             GetBameMessage();
