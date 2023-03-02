@@ -259,11 +259,16 @@ namespace ConsoleAppProject.App01
             {
                 return MILIMETERS;
             }
+            else
+            {
+                Console.WriteLine(" Invalid Choice !");
+            }
             return null;
         }
         /// <Summary>
         /// prompt the user to chose from one of this option
         /// <Summary>
+        
         private static string DisplayChoices(string prompt)
         {
             Console.WriteLine();
@@ -301,19 +306,6 @@ namespace ConsoleAppProject.App01
             Console.WriteLine($"\n {fromDistance}  {fromUnit}" +
                 $" is {toDistance} {toUnit}!\n");
         }
-
-        /// <Summary>
-        /// Output a short description of the application
-        /// and the name of the author.
-        /// <Summary>
-        private void OutputHeading(string title)
-        {
-            Console.WriteLine("\n-------------------------------------");
-            Console.WriteLine("        Distance converter         ");
-            Console.WriteLine("        by Keegan De souza           ");
-            Console.WriteLine("-------------------------------------\n");
-        }
-
     }
 }
 

@@ -24,7 +24,7 @@ namespace ConsoleAppProject.App02
     {
         public const double Underweight = 18.5;
         public const double NormalRange = 24.9;
-        public const double Overweight = 24.9;
+        public const double Overweight = 29.9;
 
         public const double ObeseLevel1 = 34.9;
         public const double ObeseLevel2 = 39.9;
@@ -104,7 +104,7 @@ namespace ConsoleAppProject.App02
         }
 
         ///<summary>
-        ///Prompt the user to select imperial or metric 
+        ///Prompts the user to select imperial or metric 
         ///units for entering their weight and height 
         ///</summary>
         private UnitSystems SelectUnits()
@@ -131,11 +131,12 @@ namespace ConsoleAppProject.App02
         
         private void InputImperialDetails()
         {
-            Console.WriteLine(" Enter your height to the nearest feet and inches ");
+            Console.WriteLine();
+            Console.Write(" Enter your height to the nearest feet and inches");
             Console.WriteLine();
 
-            Feet = (int)ConsoleHelper.InputNumber("\n Enter your height in feet > ");
-            Inches = (int)ConsoleHelper.InputNumber("\n Enter your height in inches > ");
+            Feet = (int)ConsoleHelper.InputNumber(" Enter your height in feet > ");
+            Inches = (int)ConsoleHelper.InputNumber(" Enter your height in inches > ");
 
             Console.WriteLine();
             Console.Write(" Enter your weight to the nearest stones and pounds");
@@ -161,6 +162,7 @@ namespace ConsoleAppProject.App02
         }
 
         ///<summary>
+        ///Once the user has entered their weight,height etc then the if statments checks and 
         ///Output the users BMI and their weight
         ///category from underweight to obese.
         ///</summary>
@@ -172,32 +174,32 @@ namespace ConsoleAppProject.App02
 
             if (Index < Underweight)
             {
-                Console.WriteLine($" Your BMI is {Index:0.00}, " +
+                Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                     $"You are underweight! ");
             }
             else if (Index <= NormalRange)
             {
-                Console.WriteLine($" Your BMI is {Index:0.00}, " +
+                Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                    $"You are in the normal range! ");
             }
             else if (Index <= Overweight)
             {
-                Console.WriteLine($" Your BMI is {Index:0.00}, " +
+                Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                     $"You are overweight! ");
             }
             else if (Index <= ObeseLevel1)
             {
-                Console.WriteLine($" Your BMI is {Index:0.00}, " +
+                Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                     $"You are obese class I ");
             }
             else if (Index <= ObeseLevel2)
             {
-                Console.WriteLine($" Your BMI is {Index:0.00}, " +
+                Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                     $"You are obese class II ");
             }
             else if (Index <= ObeseLevel3)
             {
-                Console.WriteLine($" Your BMI is {Index:0.00}, " +
+                Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                     $"You are obese class III ");
             }
 
@@ -211,33 +213,9 @@ namespace ConsoleAppProject.App02
         ////</summary>
         public string GetBameMessage()
         {
-            ConsoleHelper.OutputTitle(" if you are Black, Asian or other minority \n ethnic groups, you have a higher risk \n" +
+            ConsoleHelper.OutputTitle("If you are Black, Asian or other minority \n ethnic groups, you have a higher risk \n" +
                 "\n Adults 23.0 or more are at increased risk \n Adults 27.5 or more are at increased risk");
             return null;
         }
-
-        //public double InputNumber(string prompt)
-        //{
-        //    Console.WriteLine(prompt);
-        //    string value = Console.ReadLine();
-        //    double number = Convert.ToDouble(value);
-
-        //    return number;
-        //}
-
-
-        /// <Summary>
-        /// Output a short description of the application
-        /// and the name of the author and a prompt to 
-        /// inform the user which units are being converted.
-        /// <Summary>
-        //private void OutputHeading(string title)
-        //{
-        //    Console.WriteLine("\n-------------------------------------");
-        //    Console.WriteLine("        Body Mass Index Calculator        ");
-        //    Console.WriteLine("        by Keegan De souza           ");
-        //    Console.WriteLine("-------------------------------------\n");
-        //}
-
     }
 }

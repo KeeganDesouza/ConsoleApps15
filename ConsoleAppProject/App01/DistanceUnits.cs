@@ -11,7 +11,9 @@ namespace ConsoleAppProject.App01
         NoUnit,
         Feet,
         Metres,
+        Miles,
         Kilometres,
-        Miles
+        centimeters,
+        Milimeters,
     }
 }

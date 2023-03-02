@@ -25,19 +25,17 @@ namespace ConsoleAppProject
             ConsoleHelper.OutputHeading(" BNU CO453 Applications Programming 2022-2023! ");
             Console.WriteLine();
 
-            Console.WriteLine("1 Distance Converter");
-            Console.WriteLine("2 BMI Calculator");
-            Console.WriteLine();
-            // if statments required for user choice (1,2)
-            Console.WriteLine("Please enter your choice of App > ");
-            string choice = Console.ReadLine();
+            string[] menu = new string[2];
+            menu[0] = " Distance Converter";
+            menu[1] = " BMI Calculator";
+            int choice = ConsoleHelper.SelectChoice(menu);
 
-            if (choice =="1")
+            if (choice ==1)
             {
                 DistanceConverter converter = new DistanceConverter();
                 converter.ConvertDistance();
             }
-            else if (choice =="2")
+            else if (choice ==2)
             {
                 BMI bmi = new BMI();
                 bmi.CalculateIndex();
