@@ -87,12 +87,12 @@ namespace ConsoleAppProject.App02
             GetBameMessage();
         }
 
-        //Calculate method used to return to the index
+        //Calculate method used to return to the index 
         public void CalculateMetricBMI()
         {
             meters = Centimeters / 100;
             Index = Kilograms / (meters * meters);
-            Console.WriteLine($"{Index}");
+            Console.WriteLine($" {Index}");
         }
 
         public void CalculateImperialBMI()
