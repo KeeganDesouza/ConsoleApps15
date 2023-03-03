@@ -1,3 +1,6 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ConsoleAppProject.App01;
+
 namespace ConsoleApp.Tests
 {
     [TestClass]
@@ -6,10 +9,10 @@ namespace ConsoleApp.Tests
         [TestMethod]
         public void TestMilesToFeet()
         {
-            DistanceConverter converter = new DistanceConverter()
-            {
+            DistanceConverter converter = new DistanceConverter();
 
-            };
+            converter.FromUnit = DistanceConverter.MILES;
+            converter.FromUnit = DistanceConverter.FEET;
         }
     }
 }
