@@ -53,17 +53,17 @@ namespace ConsoleAppProject.App01
         private const string MILIMETERS = "Milimeters";
 
         //Private Attributes(Global Variables) 
-        private double fromDistance;
-        private double toDistance;
+        public double FromDistance { get; set; }
+        public double ToDistance { get; set; }
 
-        private string fromUnit;
-        private string toUnit;
+        public string FromUnit { get; set; }
+        public string ToUnit { get; set; }
 
         //constructor to set default values 
         public DistanceConverter()
         {
-            fromUnit = MILES;
-            toUnit = FEET;
+            FromUnit = MILES;
+            ToUnit = FEET;
         }
         /// <Summary>
         /// This method will input the distance measured in miles 
@@ -75,10 +75,10 @@ namespace ConsoleAppProject.App01
         {
             ConsoleHelper.OutputHeading(" Distance Converter ");
             Console.WriteLine();
-            fromUnit = SelectUnit(" Select the from distance unit > ");
-            toUnit = SelectUnit(" Select the to distance unit > ");
-            Console.WriteLine($"\n Converting {fromUnit} to {toUnit}");
-            fromDistance = InputDistance($" Please enter the number of {fromUnit} > ");
+            FromUnit = SelectUnit(" Select the from distance unit > ");
+            ToUnit = SelectUnit(" Select the to distance unit > ");
+            Console.WriteLine($"\n Converting {FromUnit} to {ToUnit}");
+            FromDistance = InputDistance($" Please enter the number of {FromUnit} > ");
             CalculateDistance();
             OutputDistance();
             
@@ -87,139 +87,139 @@ namespace ConsoleAppProject.App01
         //if statments used to calculate the conversion for the 6 diffrent distance.
         private void CalculateDistance()
         {
-            if(fromUnit == MILES && toUnit == FEET)
+            if(FromUnit == MILES && ToUnit == FEET)
             {
-                toDistance = fromDistance * FEET_IN_MILES;
+                ToDistance = FromDistance * FEET_IN_MILES;
             }
-            else if(fromUnit == FEET &&  toUnit == MILES)
+            else if(FromUnit == FEET &&  ToUnit == MILES)
             {
-                toDistance = fromDistance / FEET_IN_MILES;
-            }
-
-            if (fromUnit == MILES && toUnit == METERS)
-            {
-                toDistance = fromDistance * METERS_IN_MILES;
-            }
-            else if (fromUnit == METERS && toUnit == MILES)
-            {
-                toDistance = fromDistance / METERS_IN_MILES;
+                ToDistance = FromDistance / FEET_IN_MILES;
             }
 
-            if (fromUnit == METERS && toUnit == FEET)
+            if (FromUnit == MILES && ToUnit == METERS)
             {
-                toDistance = fromDistance * FEET_IN_METERS;
+                ToDistance = FromDistance * METERS_IN_MILES;
             }
-            else if (fromUnit == FEET && toUnit == METERS)
+            else if (FromUnit == METERS && ToUnit == MILES)
             {
-                toDistance = fromDistance / FEET_IN_METERS;
-            }
-
-            if (fromUnit == KILOMETERS && toUnit == METERS)
-            {
-                toDistance = fromDistance * METERS_IN_KILOMETERS;
-            }
-            else if (fromUnit == METERS && toUnit == KILOMETERS)
-            {
-                toDistance = fromDistance / METERS_IN_KILOMETERS;
+                ToDistance = FromDistance / METERS_IN_MILES;
             }
 
-            if (fromUnit == KILOMETERS && toUnit == FEET)
+            if (FromUnit == METERS && ToUnit == FEET)
             {
-                toDistance = fromDistance * FEET_IN_KILOMETERS;
+                ToDistance = FromDistance * FEET_IN_METERS;
             }
-            else if (fromUnit == FEET && toUnit == KILOMETERS)
+            else if (FromUnit == FEET && ToUnit == METERS)
             {
-                toDistance = fromDistance / FEET_IN_KILOMETERS;
-            }
-
-            if (fromUnit == KILOMETERS && toUnit == MILES)
-            {
-                toDistance = fromDistance / MILES_IN_KILOMETERS;
-            }
-            else if (fromUnit == MILES && toUnit == KILOMETERS)
-            {
-                toDistance = fromDistance * MILES_IN_KILOMETERS;
+                ToDistance = FromDistance / FEET_IN_METERS;
             }
 
-            if (fromUnit == METERS && toUnit == CENTIMETERS)
+            if (FromUnit == KILOMETERS && ToUnit == METERS)
             {
-                toDistance = fromDistance * CENTIMETERS_IN_METERS;
+                ToDistance = FromDistance * METERS_IN_KILOMETERS;
             }
-            else if (fromUnit == CENTIMETERS && toUnit == METERS)
+            else if (FromUnit == METERS && ToUnit == KILOMETERS)
             {
-                toDistance = fromDistance / CENTIMETERS_IN_METERS;
-            }
-
-            if (fromUnit == KILOMETERS && toUnit == CENTIMETERS)
-            {
-                toDistance = fromDistance * CENTIMETERS_IN_KILOMETERS;
-            }
-            else if (fromUnit == CENTIMETERS && toUnit == KILOMETERS)
-            {
-                toDistance = fromDistance / CENTIMETERS_IN_KILOMETERS;
+                ToDistance = FromDistance / METERS_IN_KILOMETERS;
             }
 
-            if (fromUnit == MILES && toUnit == CENTIMETERS)
+            if (FromUnit == KILOMETERS && ToUnit == FEET)
             {
-                toDistance = fromDistance * CENTIMETERS_IN_MILES;
+                ToDistance = FromDistance * FEET_IN_KILOMETERS;
             }
-            else if (fromUnit == CENTIMETERS && toUnit == MILES)
+            else if (FromUnit == FEET && ToUnit == KILOMETERS)
             {
-                toDistance = fromDistance / CENTIMETERS_IN_MILES;
-            }
-
-            if (fromUnit == FEET && toUnit == CENTIMETERS)
-            {
-                toDistance = fromDistance * CENTIMETERS_IN_FEET;
-            }
-            else if (fromUnit == CENTIMETERS && toUnit == FEET)
-            {
-                toDistance = fromDistance / CENTIMETERS_IN_FEET;
+                ToDistance = FromDistance / FEET_IN_KILOMETERS;
             }
 
-            if (fromUnit == MILIMETERS && toUnit == METERS)
+            if (FromUnit == KILOMETERS && ToUnit == MILES)
             {
-                toDistance = fromDistance / METERS_IN_MILIMETERS;
+                ToDistance = FromDistance / MILES_IN_KILOMETERS;
             }
-            else if (fromUnit == METERS && toUnit == MILIMETERS)
+            else if (FromUnit == MILES && ToUnit == KILOMETERS)
             {
-                toDistance = fromDistance * METERS_IN_MILIMETERS;
-            }
-
-            if (fromUnit == KILOMETERS && toUnit == MILIMETERS)
-            {
-                toDistance = fromDistance * MILIMETERS_IN_KILOMETERS;
-            }
-            else if (fromUnit == MILIMETERS && toUnit == KILOMETERS)
-            {
-                toDistance = fromDistance / MILIMETERS_IN_KILOMETERS;
+                ToDistance = FromDistance * MILES_IN_KILOMETERS;
             }
 
-            if (fromUnit == MILIMETERS && toUnit == CENTIMETERS)
+            if (FromUnit == METERS && ToUnit == CENTIMETERS)
             {
-                toDistance = fromDistance / CENTIMETERS_IN_MILIMETERS;
+                ToDistance = FromDistance * CENTIMETERS_IN_METERS;
             }
-            else if (fromUnit == CENTIMETERS && toUnit == MILIMETERS)
+            else if (FromUnit == CENTIMETERS && ToUnit == METERS)
             {
-                toDistance = fromDistance * CENTIMETERS_IN_MILIMETERS;
-            }
-
-            if (fromUnit == MILIMETERS && toUnit == MILES)
-            {
-                toDistance = fromDistance / MILES_IN_MILIMETERS;
-            }
-            else if (fromUnit == MILES && toUnit == MILIMETERS)
-            {
-                toDistance = fromDistance * MILES_IN_MILIMETERS;
+                ToDistance = FromDistance / CENTIMETERS_IN_METERS;
             }
 
-            if (fromUnit == FEET && toUnit == MILIMETERS)
+            if (FromUnit == KILOMETERS && ToUnit == CENTIMETERS)
             {
-                toDistance = fromDistance * MILIMETERS_IN_FEET;
+                ToDistance = FromDistance * CENTIMETERS_IN_KILOMETERS;
             }
-            else if (fromUnit == MILIMETERS && toUnit == FEET)
+            else if (FromUnit == CENTIMETERS && ToUnit == KILOMETERS)
             {
-                toDistance = fromDistance / MILIMETERS_IN_FEET;
+                ToDistance = FromDistance / CENTIMETERS_IN_KILOMETERS;
+            }
+
+            if (FromUnit == MILES && ToUnit == CENTIMETERS)
+            {
+                ToDistance = FromDistance * CENTIMETERS_IN_MILES;
+            }
+            else if (FromUnit == CENTIMETERS && ToUnit == MILES)
+            {
+                ToDistance = FromDistance / CENTIMETERS_IN_MILES;
+            }
+
+            if (FromUnit == FEET && ToUnit == CENTIMETERS)
+            {
+                ToDistance = FromDistance * CENTIMETERS_IN_FEET;
+            }
+            else if (FromUnit == CENTIMETERS && ToUnit == FEET)
+            {
+                ToDistance = FromDistance / CENTIMETERS_IN_FEET;
+            }
+
+            if (FromUnit == MILIMETERS && ToUnit == METERS)
+            {
+                ToDistance = FromDistance / METERS_IN_MILIMETERS;
+            }
+            else if (FromUnit == METERS && ToUnit == MILIMETERS)
+            {
+                ToDistance = FromDistance * METERS_IN_MILIMETERS;
+            }
+
+            if (FromUnit == KILOMETERS && ToUnit == MILIMETERS)
+            {
+                ToDistance = FromDistance * MILIMETERS_IN_KILOMETERS;
+            }
+            else if (FromUnit == MILIMETERS && ToUnit == KILOMETERS)
+            {
+                ToDistance = FromDistance / MILIMETERS_IN_KILOMETERS;
+            }
+
+            if (FromUnit == MILIMETERS && ToUnit == CENTIMETERS)
+            {
+                ToDistance = FromDistance / CENTIMETERS_IN_MILIMETERS;
+            }
+            else if (FromUnit == CENTIMETERS && ToUnit == MILIMETERS)
+            {
+                ToDistance = FromDistance * CENTIMETERS_IN_MILIMETERS;
+            }
+
+            if (FromUnit == MILIMETERS && ToUnit == MILES)
+            {
+                ToDistance = FromDistance / MILES_IN_MILIMETERS;
+            }
+            else if (FromUnit == MILES && ToUnit == MILIMETERS)
+            {
+                ToDistance = FromDistance * MILES_IN_MILIMETERS;
+            }
+
+            if (FromUnit == FEET && ToUnit == MILIMETERS)
+            {
+                ToDistance = FromDistance * MILIMETERS_IN_FEET;
+            }
+            else if (FromUnit == MILIMETERS && ToUnit == FEET)
+            {
+                ToDistance = FromDistance / MILIMETERS_IN_FEET;
             }
 
         }
@@ -282,12 +282,12 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         /// prompt the user to enter the distance in miles
         /// input the miles as a double number
+        /// the console helpers is also utilized to add a prompt suggesting if a invalid distance has been added.
         /// <Summary>
         private double InputDistance(String prompt)
         {
-            Console.Write(prompt);
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
+            double value = ConsoleHelper.InputNumber(prompt);
+            return value;
         }
 
 
@@ -297,8 +297,8 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         private void OutputDistance()
         {
-            Console.WriteLine($"\n {fromDistance}  {fromUnit}" +
-                $" is {toDistance} {toUnit}!\n");
+            Console.WriteLine($"\n {FromDistance}  {FromUnit}" +
+                $" is {ToDistance} {ToUnit}!\n");
             Console.ReadLine();
         }
     }
