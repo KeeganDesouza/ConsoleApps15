@@ -85,7 +85,7 @@ namespace ConsoleAppProject.App01
         }
 
         //if statments used to calculate the conversion for the 6 diffrent distance.
-        private void CalculateDistance()
+        public void CalculateDistance()
         {
             if(FromUnit == MILES && ToUnit == FEET)
             {
