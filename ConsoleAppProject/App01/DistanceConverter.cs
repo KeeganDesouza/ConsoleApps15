@@ -44,7 +44,7 @@ namespace ConsoleAppProject.App01
 
         public const double MILIMETERS_IN_FEET = 304.8;
 
-        //Distance variables
+        ///Distance variables
         private const string FEET = "Feet";
         private const string METERS = "Meters";
         private const string MILES = "Miles";
@@ -52,14 +52,14 @@ namespace ConsoleAppProject.App01
         private const string CENTIMETERS = "Centimeters";
         private const string MILIMETERS = "Milimeters";
 
-        //Private Attributes(Global Variables) 
+        ///Private Attributes(Global Variables) 
         public double FromDistance { get; set; }
         public double ToDistance { get; set; }
 
         public string FromUnit { get; set; }
         public string ToUnit { get; set; }
 
-        //constructor to set default values 
+        ///constructor to set default values 
         public DistanceConverter()
         {
             FromUnit = MILES;
@@ -71,7 +71,6 @@ namespace ConsoleAppProject.App01
         /// distance in feet.
         /// <Summary>
         public void ConvertDistance()
-
         {   
             ConsoleHelper.OutputHeading(" Distance Converter ");
             Console.WriteLine();
@@ -84,7 +83,7 @@ namespace ConsoleAppProject.App01
             
         }
 
-        //if statments used to calculate the conversion for the 6 diffrent distance.
+        ///if statments used to calculate the conversion for the 6 diffrent distance.
         private void CalculateDistance()
         {
             if(FromUnit == MILES && ToUnit == FEET)
@@ -234,6 +233,11 @@ namespace ConsoleAppProject.App01
             return unit;
         }
 
+        ///<summary>
+        ///Prompts the user to select the from distance and to distance unit
+        ///if an invalid choice has been chosen an error message would display
+        ///with a prompt and repeat the choices due to the if statments.
+        ///</summary>
         private static string ExecuteChoice(string choice)
         {
             if (choice.Equals("1"))
@@ -269,7 +273,6 @@ namespace ConsoleAppProject.App01
         /// <Summary>
         /// prompt the user to chose from one of this option
         /// <Summary>
-        
         private static string DisplayChoices(string prompt)
         {
             string[] choices = { "Feet", "Meters", "Miles", "Kilometers", "Centimeters", "Milimeters" };
@@ -278,7 +281,6 @@ namespace ConsoleAppProject.App01
             return Convert.ToString(choice);
             
         }
-
         /// <Summary>
         /// prompt the user to enter the distance in miles
         /// input the miles as a double number

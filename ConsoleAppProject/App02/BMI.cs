@@ -35,14 +35,14 @@ namespace ConsoleAppProject.App02
 
         public double Index { get; set; }
 
-        //Public Attributes used in this BMI calculator
-        //Metric Details
+        ///Public Attributes used in this BMI calculator
+        ///Metric Details
 
         public double Kilograms { get; set; }
         public double Centimeters { get; set; }
 
 
-        //Imperial Details
+        ///Imperial Details
 
         public int Stones { get; set; }
         public int pounds { get; set; }
@@ -83,11 +83,11 @@ namespace ConsoleAppProject.App02
 
            
             
-            // This code outputs the bam message as a string
+            ///This code outputs the bam message as a string
             GetBameMessage();
         }
 
-        //Calculate method used to return to the index 
+        ///Calculate method used to return to the index 
         public void CalculateMetricBMI()
         {
             meters = Centimeters / 100;
@@ -166,12 +166,8 @@ namespace ConsoleAppProject.App02
         ///Output the users BMI and their weight
         ///category from underweight to obese.
         ///</summary>
-        
-        // uses string builder puts a new line in and appends the message to the string
         public string GetHealthMessage()
         {
-            //StringBuilder message = new StringBuilder("\n");
-
             if (Index < Underweight)
             {
                 Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
@@ -202,8 +198,11 @@ namespace ConsoleAppProject.App02
                 Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
                     $"You are obese class III ");
             }
-           
-
+            else
+            {
+                Console.WriteLine($"\n Your BMI is {Index:0.00}, " +
+                    $"You are obese class III ");
+            }
             return Convert.ToString(Index);
 
         }
