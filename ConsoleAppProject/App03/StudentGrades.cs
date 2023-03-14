@@ -41,6 +41,14 @@ namespace ConsoleAppProject.App03
 
         public int Maximum { get; set; }
 
+        public Grades Grades
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// Class Constructor called when an object 
         /// is created and sets up an array of students.
