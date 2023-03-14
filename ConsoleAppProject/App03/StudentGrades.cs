@@ -2,10 +2,15 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
+using System.Diagnostics;
+using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
 using ConsoleAppProject.Helpers;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleAppProject.App03
 {
+
     /// <summary>
     /// At the moment this class just tests the
     /// Grades enumeration names and descriptions
@@ -21,12 +26,14 @@ namespace ConsoleAppProject.App03
         public const int LowestGradeA = 70;
         public const int HighestMark = 100;
 
-        //properties 
+        //properties
         public string[] Students { get; set; }
 
         public int[] Marks { get; set; }
         
         public int[] GradeProfile { get; set; }
+
+        public Grades[] FigureGrade { get; set; }
 
         public double Mean { get; set; }
 
@@ -50,6 +57,7 @@ namespace ConsoleAppProject.App03
 
             GradeProfile = new int[(int)Grades.A + 1];
             Marks = new int[Students.Length];
+            FigureGrade = new Grades[Marks.Length];
         }
 
         ///<Summary>
@@ -58,7 +66,16 @@ namespace ConsoleAppProject.App03
         ///</Summary>
         public void InputMarks()
         {
-            throw new NotImplementedException();
+                Console.WriteLine();
+                Console.Write(" Please enter a mark for each student");
+                Console.WriteLine();
+            // take input for student marks using a loop
+            for (int i = 0; i < Students.Length; i++)
+            {
+                Console.Write(" Enter marks for : ", Students[i]);
+                Marks[i] = int.Parse(Console.ReadLine());
+            }
+
         }
 
         ///<summary>
@@ -67,8 +84,30 @@ namespace ConsoleAppProject.App03
         ///</Summary>
         public void OutputMarks()
         {
-            throw new NotImplementedException();
+            Console.WriteLine();
+            Console.Write(" Output Students Marks and Grades");
+            Console.WriteLine();
+            WorkoutGrades();
+            // print out the student names,marks and grades
+            for (int i = 0; i < Students.Length; i++)
+            
+            {
+                Console.WriteLine($" {Students[i]}: {Marks[i]} is Grade {FigureGrade[i]}");
+            }         
+
         }
+
+        public void WorkoutGrades()
+        {
+            // print out the grades for each student
+            for (int i = 0; i < Marks.Length; i++)
+            {
+                Grades x = ConvertToGrade(Marks[i]);
+                FigureGrade[i] = x;
+            }
+
+        }
+
 
         ///<summary>
         ///Convert a student mark to a grade
@@ -118,6 +157,7 @@ namespace ConsoleAppProject.App03
             }
 
             Mean = total / Marks.Length;
+            Console.WriteLine($" The average student marks is {Mean},\n the minimum mark is {Minimum},\n the maximum mark is {Maximum}");
         }
 
         ///<summary>
@@ -130,26 +170,77 @@ namespace ConsoleAppProject.App03
             {
                 GradeProfile[i] = 0;
             }
-
             foreach (int mark in Marks)
             {
                 Grades grade = ConvertToGrade(mark);
                 GradeProfile[(int)grade]++;
             }
+            OutputGradeProfile();
         }
-
         public void OutputGradeProfile()
         {
-             Grades grade = Grades.A;
-             Console.WriteLine();
-
-             foreach (int count in GradeProfile)
-             {
+            Grades grade = Grades.F;
+            Console.WriteLine();
+            foreach (int count in GradeProfile)
+            {
                 int percentage = count * 100 / Marks.Length;
-                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
+                Console.WriteLine($" Grade {grade} {percentage}% Count {count}");
                 grade++;
-             }
-             Console.WriteLine();
+            }
+            MainMenu();
+        }
+
+        public void CalculateGrades()
+        {
+            ConsoleHelper.OutputHeading("Student Grades App");
+            Console.WriteLine();
+            MainMenu();
+        }
+
+        private void MainMenu()
+        {
+            string[] choices = new string[]
+            {
+                "Input Marks",
+                "Output Marks",
+                "Output Stats",
+                "Output Grade Profile",
+                "Exit"
+            };
+
+            int choice = ConsoleHelper.SelectChoice(choices);
+
+            if (choice == 1)
+            {
+                InputMarks();
+                Console.WriteLine();
+                MainMenu();
+            }
+            else if  (choice == 2) 
+            { 
+                OutputMarks();
+                Console.WriteLine();
+                MainMenu();
+            }
+            else if (choice == 3)
+            {
+                CalculateStats();
+                Console.WriteLine();
+                MainMenu();
+            }
+            else if (choice == 4)
+            {
+                OutputGradeProfile();
+                Console.WriteLine();
+                MainMenu();
+            }
+            else if (choice == 5)
+            {
+                Environment.Exit(0);
+            }
+
+
+
         }
 
 

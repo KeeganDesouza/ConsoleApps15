@@ -25,10 +25,9 @@ namespace ConsoleAppProject
             ConsoleHelper.OutputHeading(" BNU CO453 Applications Programming 2022-2023! ");
             Console.WriteLine();
 
-            string[] menu = new string[2];
-            menu[0] = " Distance Converter";
-            menu[1] = " BMI Calculator";
-            int choice = ConsoleHelper.SelectChoice(menu);
+            string[] choices = {" Distance Converter"," BMI Calculator"," Student Grades"};
+
+            int choice = ConsoleHelper.SelectChoice(choices);
 
             if (choice ==1)
             {
@@ -40,7 +39,12 @@ namespace ConsoleAppProject
                 BMI bmi = new BMI();
                 bmi.CalculateIndex();
             }
-            else Console.WriteLine("INVALID CHOICE");
+            else if (choice == 3)
+            {
+                StudentGrades studentGrades = new StudentGrades();
+                studentGrades.CalculateGrades();
+            }
+            //else Console.WriteLine("INVALID CHOICE");
 
         }
     }
