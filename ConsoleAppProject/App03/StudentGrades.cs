@@ -3,10 +3,10 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using ConsoleAppProject.App01;
-using ConsoleAppProject.App02;
+//using ConsoleAppProject.App01;
+//using ConsoleAppProject.App02;
 using ConsoleAppProject.Helpers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+//using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ConsoleAppProject.App03
 {
@@ -254,17 +254,8 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine();
                 MainMenu();
             }
-            else if (choice == 5)
-            {
-                Environment.Exit(0);
-            }
-
-
-
+     
         }
-
-
     }
-
 }
 
