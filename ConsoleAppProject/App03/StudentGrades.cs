@@ -3,10 +3,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-//using ConsoleAppProject.App01;
-//using ConsoleAppProject.App02;
 using ConsoleAppProject.Helpers;
-//using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace ConsoleAppProject.App03
 {
