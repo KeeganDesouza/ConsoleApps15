@@ -72,8 +72,9 @@ namespace ConsoleAppProject.App03
             // take input for student marks using a loop
             for (int i = 0; i < Students.Length; i++)
             {
-                Console.Write(" Enter marks for {0}: ",Students[i]);
+                Console.Write(" Enter marks for {0}: ", Students[i]);
                 Marks[i] = int.Parse(Console.ReadLine());
+
             }
 
         }
