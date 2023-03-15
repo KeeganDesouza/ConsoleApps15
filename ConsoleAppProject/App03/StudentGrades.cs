@@ -51,9 +51,9 @@ namespace ConsoleAppProject.App03
             //Array list of student names
             Students = new string[]
             {
-            "Jacob", "Dion", "Christina",
-            "Alice", "Sam", "Daniel",
-            "Rocky", "Phebe", "Adi",
+            "Jacob", "Denes", "Chris",
+            "Alice", "Talha", "Danny",
+            "Rocky", "Phebe", "Miski",
             "Jamal"
             };
 
@@ -88,14 +88,14 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             Console.WriteLine();
-            Console.Write(" Output Students Marks and Grades");
+            ConsoleHelper.OutputTitle("Listing of student Marks");
             Console.WriteLine();
             WorkoutGrades();
             // print out the student names,marks and grades
             for (int i = 0; i < Students.Length; i++)
             
             {
-                Console.WriteLine($" {Students[i]}: {Marks[i]} is Grade {CalculateGrade[i]}");
+                Console.WriteLine($" Student {Students[i]} Mark = {Marks[i]} Grade = {CalculateGrade[i]}");
             }         
 
         }
@@ -164,7 +164,8 @@ namespace ConsoleAppProject.App03
             }
 
             Mean = total / Marks.Length;
-            Console.WriteLine($" The average student marks is {Mean},\n the minimum student marks is {Minimum},\n the maximum student marks is {Maximum}");
+            Console.WriteLine($" The average student marks is {Mean},\n the minimum student marks is {Minimum}," +
+                $"\n the maximum student marks is {Maximum}");
         }
 
         ///<summary>
