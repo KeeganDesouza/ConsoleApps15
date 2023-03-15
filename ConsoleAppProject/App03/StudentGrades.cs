@@ -13,8 +13,8 @@ namespace ConsoleAppProject.App03
 
     /// <summary>
     /// This App will prompt the user to input marks for the displayed students
-    /// and then display the list of student with their marks and grade
-    /// it will then Calculate and display the mean mark, the minimum mark and the maximum mark
+    /// and then display the list of students with their marks and grade
+    /// it will then Calculate and display the Average mark, the minimum mark and the maximum mark
     /// furthermore it would also be Calculating and displaying
     /// a grade profile(the percentage of students obtaining each grade).
     /// </summary>
@@ -69,13 +69,14 @@ namespace ConsoleAppProject.App03
         public void InputMarks()
         {
                 Console.WriteLine();
-                Console.Write(" Please enter a mark for each student");
+                Console.Write("Please enter a mark for each student");
                 Console.WriteLine();
             // take input for student marks using a loop
             for (int i = 0; i < Students.Length; i++)
             {
-                Console.Write(" Enter marks for {0}: ", Students[i]);
-                Marks[i] = int.Parse(Console.ReadLine());
+                //Checks for invalid numbers such as special characters by the help of console helpers. 
+                //Asks the user to enter marks for each student.
+                Marks[i] = Convert.ToInt32(ConsoleHelper.InputNumber($"Enter marks for {Students[i]}: " ));
 
             }
 
@@ -169,8 +170,8 @@ namespace ConsoleAppProject.App03
         }
 
         ///<summary>
-        ///Calculates the grades taken from the students marks 
-        ///and then displays the percentage and counts.
+        ///Calculates the grades taken from the students marks
+        ///and then outputs it to the grade profile.
         ///</summary
         public void CalculateGradeProfile()
         {
@@ -187,9 +188,9 @@ namespace ConsoleAppProject.App03
         }
 
         ///<summary>
-        ///Calculates the grades taken from the students 
+        ///Converts the grades taken from the students 
         ///and then displays the percentage and counts 
-        ///the ammount of student that have received that grade.
+        ///the ammount of student that have received similar grade overall.
         ///</summary
         public void OutputGradeProfile()
         {

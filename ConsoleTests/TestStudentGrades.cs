@@ -72,7 +72,7 @@ namespace ConsoleApp.Tests
                                (studentGrades.GradeProfile[2] == 1) &&
                                (studentGrades.GradeProfile[3] == 1) &&
                                (studentGrades.GradeProfile[4] == 4));
-            //Assert
+           //Assert
             Assert.IsTrue(expectedProfile);
         }
 
