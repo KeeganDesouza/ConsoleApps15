@@ -228,7 +228,7 @@ namespace ConsoleAppProject.App03
 
             ///<summary>
             ///if statments have been used to help choose
-            ///between this 5 options and or exit the application.
+            ///between this 4 options and or exit the application.
             ///</summary
             if (choice == 1)
             {
@@ -250,7 +250,7 @@ namespace ConsoleAppProject.App03
             }
             else if (choice == 4)
             {
-                OutputGradeProfile();
+                CalculateGradeProfile();
                 Console.WriteLine();
                 MainMenu();
             }
