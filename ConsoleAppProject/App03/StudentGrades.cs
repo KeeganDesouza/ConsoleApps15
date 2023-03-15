@@ -13,11 +13,13 @@ namespace ConsoleAppProject.App03
 
     /// <summary>
     /// This App will prompt the user to input marks for the displayed students
-    /// then display the  
-    /// 
+    /// and then display the list of student with their marks and grade
+    /// it will then Calculate and display the mean mark, the minimum mark and the maximum mark
+    /// furthermore it would also be Calculating and displaying
+    /// a grade profile(the percentage of students obtaining each grade).
     /// </summary>
     /// <author>
-    /// Keegan De souza App#3
+    /// Keegan De souza App03
     /// Last modified 15/03/2023
     /// </author>
     public class StudentGrades
