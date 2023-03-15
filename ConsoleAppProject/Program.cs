@@ -16,14 +16,6 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
-        public static StudentGrades StudentGrades
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -49,9 +41,9 @@ namespace ConsoleAppProject
             else if (choice == 3)
             {
                 StudentGrades studentGrades = new StudentGrades();
-                studentGrades.CalculateGrades();
+                studentGrades.MainMenu();
             }
-            //else Console.WriteLine("INVALID CHOICE");
+            
 
         }
     }
