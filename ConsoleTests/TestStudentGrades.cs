@@ -12,7 +12,10 @@ namespace ConsoleApp.Tests
         {
            10, 20, 30, 40, 50, 60, 70, 80, 90, 100
         };
-
+        ///<Summary>
+        ///This Test is used to check the Grade 
+        ///for the studentGrades app
+        ///<summary>
         [TestMethod]
         public void TestCovert0ToGradeF()
         {
@@ -24,6 +27,10 @@ namespace ConsoleApp.Tests
             Assert.AreEqual(expectedGrade, actualGrade);
         }
 
+        ///<Summary>
+        ///This Test is used to check the Grade 
+        ///for the studentGrades app
+        ///<summary>
         [TestMethod]
         public void TestCovert39ToGradeF()
         {
@@ -35,6 +42,10 @@ namespace ConsoleApp.Tests
             Assert.AreEqual(expectedGrade, actualGrade);
         }
 
+        ///<Summary>
+        ///This Test is used to check the average marks 
+        ///for the studentGrades app
+        ///<summary>
         [TestMethod]
         public void TestCalculateMean()
         {   
@@ -47,6 +58,10 @@ namespace ConsoleApp.Tests
             Assert.AreEqual(expectedMean, studentGrades.Mean);
         }
 
+        ///<Summary>
+        ///This Test is used to check the minimum marks
+        ///for the studentGrades app
+        ///<summary>
         [TestMethod]
         public void TestCalculateMin()
         {
@@ -59,6 +74,10 @@ namespace ConsoleApp.Tests
             Assert.AreEqual(expectedMin, studentGrades.Minimum);
         }
 
+        ///<Summary>
+        ///This Test is used to check the Gradeprofile
+        ///for the studentGrades app
+        ///<summary>
         [TestMethod]
         public void TestGradeProfile()
         {
@@ -72,7 +91,7 @@ namespace ConsoleApp.Tests
                                (studentGrades.GradeProfile[2] == 1) &&
                                (studentGrades.GradeProfile[3] == 1) &&
                                (studentGrades.GradeProfile[4] == 4));
-            //Assert
+           //Assert
             Assert.IsTrue(expectedProfile);
         }
 

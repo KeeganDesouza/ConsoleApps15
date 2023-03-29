@@ -3,21 +3,21 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using ConsoleAppProject.App01;
-using ConsoleAppProject.App02;
 using ConsoleAppProject.Helpers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 namespace ConsoleAppProject.App03
 {
 
     /// <summary>
     /// This App will prompt the user to input marks for the displayed students
-    /// then display the  
-    /// 
+    /// and then display the list of students with their marks and grade
+    /// it will then Calculate and display the Average mark, the minimum mark and the maximum mark
+    /// furthermore it would also be Calculating and displaying
+    /// a grade profile(the percentage of students obtaining each grade).
     /// </summary>
     /// <author>
-    /// Keegan De souza App#3
+    /// Keegan De souza App03
     /// Last modified 15/03/2023
     /// </author>
     public class StudentGrades
@@ -49,9 +49,9 @@ namespace ConsoleAppProject.App03
             //Array list of student names
             Students = new string[]
             {
-            "Jacob", "Dion", "Christina",
-            "Alice", "Sam", "Daniel",
-            "Rocky", "Phebe", "Adi",
+            "Jacob", "Denes", "Chris",
+            "Alice", "Talha", "Danny",
+            "Rocky", "Phebe", "Miski",
             "Jamal"
             };
 
@@ -67,13 +67,15 @@ namespace ConsoleAppProject.App03
         public void InputMarks()
         {
                 Console.WriteLine();
-                Console.Write(" Please enter a mark for each student");
+                Console.Write("Please enter a mark for each student");
                 Console.WriteLine();
             // take input for student marks using a loop
             for (int i = 0; i < Students.Length; i++)
             {
-                Console.Write(" Enter marks for {0}: ",Students[i]);
-                Marks[i] = int.Parse(Console.ReadLine());
+                //Checks for invalid numbers such as special characters by the help of console helpers. 
+                //Asks the user to enter marks for each student.
+                Marks[i] = Convert.ToInt32(ConsoleHelper.InputNumber($"Enter marks for {Students[i]}: " ));
+
             }
 
         }
@@ -85,14 +87,14 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             Console.WriteLine();
-            Console.Write(" Output Students Marks and Grades");
+            ConsoleHelper.OutputTitle("Listing of student Marks");
             Console.WriteLine();
             WorkoutGrades();
             // print out the student names,marks and grades
             for (int i = 0; i < Students.Length; i++)
             
             {
-                Console.WriteLine($" {Students[i]}: {Marks[i]} is Grade {CalculateGrade[i]}");
+                Console.WriteLine($" Student {Students[i]} Mark = {Marks[i]} Grade = {CalculateGrade[i]}");
             }         
 
         }
@@ -161,12 +163,13 @@ namespace ConsoleAppProject.App03
             }
 
             Mean = total / Marks.Length;
-            Console.WriteLine($" The average student marks is {Mean},\n the minimum student marks is {Minimum},\n the maximum student marks is {Maximum}");
+            Console.WriteLine($" The average student marks is {Mean},\n the minimum student marks is {Minimum}," +
+                $"\n the maximum student marks is {Maximum}");
         }
 
         ///<summary>
-        ///Calculates the grades taken from the students marks 
-        ///and then displays the percentage and counts.
+        ///Calculates the grades taken from the students marks
+        ///and then outputs it to the grade profile.
         ///</summary
         public void CalculateGradeProfile()
         {
@@ -183,9 +186,9 @@ namespace ConsoleAppProject.App03
         }
 
         ///<summary>
-        ///Calculates the grades taken from the students 
+        ///Converts the grades taken from the students 
         ///and then displays the percentage and counts 
-        ///the ammount of student that have received that grade.
+        ///the ammount of student that have received similar grade overall.
         ///</summary
         public void OutputGradeProfile()
         {
@@ -223,7 +226,7 @@ namespace ConsoleAppProject.App03
 
             ///<summary>
             ///if statments have been used to help choose
-            ///between this 5 options and or exit the application.
+            ///between this 4 options and or exit the application.
             ///</summary
             if (choice == 1)
             {
@@ -249,17 +252,8 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine();
                 MainMenu();
             }
-            else if (choice == 5)
-            {
-                Environment.Exit(0);
-            }
-
-
-
+     
         }
-
-
     }
-
 }
 
