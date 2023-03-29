@@ -245,7 +245,7 @@ namespace ConsoleAppProject.App03
             }
             else if (choice == 4)
             {
-                OutputGradeProfile();
+                CalculateGradeProfile();
                 Console.WriteLine();
                 MainMenu();
             }

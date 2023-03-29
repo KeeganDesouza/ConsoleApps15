@@ -43,8 +43,7 @@ namespace ConsoleAppProject
                 StudentGrades studentGrades = new StudentGrades();
                 studentGrades.MainMenu();
             }
-            
-
+            else Console.WriteLine("Invalid Choice !");
         }
     }
 }
