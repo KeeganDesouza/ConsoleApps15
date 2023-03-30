@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppProject.Helpers;
+using System;
 using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
@@ -6,50 +7,51 @@ namespace ConsoleAppProject.App04
 	public class Post
 	{
     
-    public int PostId { get; }
+        public int PostId { get; }
 
-    // username of the post's author
-     public String Username { get; }
-     public DateTime Timestamp { get; }
+        // username of the post's author
+         public String Username { get; }
+         public DateTime Timestamp { get; }
      
-     private static int instances = 0;
-     private int likes;
+         private static int instances = 0;
+         private int likes;
+         //private int Unlikes;
 
-     private readonly List<String> comments;
+         private readonly List<String> comments;
 
     /// <summary>
     /// 
     /// </summary>
-    public Post(string author)
-    {
-     instances++;
-     PostId = instances;
+        public Post(string author)
+        {
+         instances++;
+         PostId = instances;
 
-     this.Username = author;
-     Timestamp = DateTime.Now;
+         this.Username = author;
+         Timestamp = DateTime.Now;
 
-      likes = 0;
-      comments = new List<String>();
-    }
+          likes = 0;
+          comments = new List<String>();
+        }
 
     /// <summary>
     /// Record one more 'Like' indication from a user.
     /// </summary>
-    public void Like()
-    {
-      likes++;
-    }
+        public void Like()
+        {
+          likes++;
+        }
 
     ///<summary>
     /// Record that a user has withdrawn his/her 'Like' vote.
     ///</summary>
-    public void Unlike()
-    {
-       if (likes > 0)
-       {
-        likes--;
-       }
-    }
+        public void Unlike()
+        {
+           if (likes > 0)
+           {
+            likes--;
+           }
+        }
 
         ///<summary>
         /// Add a comment to this post.
@@ -78,23 +80,29 @@ namespace ConsoleAppProject.App04
 
             if (likes > 0)
             {
-                Console.WriteLine($"    Likes:  {likes}  people like this.");
+                Console.WriteLine($"    Likes:  {likes}  people liked this.");
             }
             else
             {
-                Console.WriteLine();
+                Console.WriteLine("     0 Likes on this post");
             }
 
+           
+            
             if (comments.Count == 0)
             {
                 Console.WriteLine("    No comments.");
             }
-            else
+            else 
             {
-              Console.WriteLine($" {comments.Count} Comments(s).");
-              foreach(string  id in comments) 
-              Console.WriteLine("  "+ id);
+                //Console.WriteLine($"     {comments.Count} Comment(s).");
+                foreach (string comment in comments)
+                {
+                    Console.WriteLine($"    Comment: {comment}");
+                }
+                    
             }
+
         }
 
         ///<summary>

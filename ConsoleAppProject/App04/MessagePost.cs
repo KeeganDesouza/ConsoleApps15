@@ -40,6 +40,7 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public override void Display()
         {
+            Console.WriteLine("__________________________________________________");
             Console.WriteLine($" Message: {Message}");
 
             base.Display();

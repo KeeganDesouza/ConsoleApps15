@@ -68,7 +68,7 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($" \nThe following Post = {id} has been removed!\n");
+                Console.WriteLine($" \n The following Post = {id} has been removed!\n");
 
                 if(post is MessagePost mp)
                 {
@@ -79,6 +79,7 @@ namespace ConsoleAppProject.App04
                     pp.Display();
                 }
                 posts.Remove(post);
+                
             }
         }
 
@@ -120,7 +121,6 @@ namespace ConsoleAppProject.App04
                 if (post.Username == author)
                 post.Display();
                 Console.WriteLine();
-
             }   
         }
 
@@ -130,13 +130,17 @@ namespace ConsoleAppProject.App04
             foreach (Post post in posts)
             {
                 if (post.PostId == id)
-                Console.Write(" Add your comment here > ");
-                string comment = Console.ReadLine();
-                Console.WriteLine();
-
+                {
+                    Console.Write(" Add your comment here > ");
+                    string comment = Console.ReadLine();
+                    post.AddComment(comment);
+                    Console.WriteLine();
+                }
+                
             }
-        }
 
+        }    
     }
-}
+ }
+
 

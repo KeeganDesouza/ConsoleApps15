@@ -20,7 +20,7 @@ namespace ConsoleAppProject.App04
             {
                 "Post Message", "Post Image","Remove Post", 
                 "Display All Posts", "Display By Author", 
-                "Display By Date", "Add Comment", "Like Posts", "Quit"
+                "Add Comment", "Like Posts", "Unlike Posts", "Quit"
             };
 
             bool wantToQuit = false;
@@ -36,9 +36,9 @@ namespace ConsoleAppProject.App04
                     case 3: RemovePost(); break;
                     case 4: DisplayAll(); break;
                     case 5: DisplayByAuthor(); break;
-                    case 6: DisplayByDate(); break;
-                    case 7: AddComment(); break;
-                    case 8: LikePosts(); break;
+                    case 6: AddComment(); break;
+                    case 7: LikePosts(); break;
+                    case 8: UnlikePosts(); break;
                     case 9: wantToQuit = true; break;
                 }
 
@@ -48,12 +48,13 @@ namespace ConsoleAppProject.App04
         private void LikePosts()
         {
             ConsoleHelper.OutputTitle("Liked a Post");
-            int id = (int)ConsoleHelper.InputNumber("please enter the post id > ", 1, Post.GetNumberOfPosts());
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the Post ID that you would prefer to Like > ", 
+                                                                                   1, Post.GetNumberOfPosts());
 
             Post post = news.FindPost(id);
             post.Like();
 
-            ConsoleHelper.OutputTitle("The post has been liked");
+            ConsoleHelper.OutputTitle(" The Post has been Liked");
 
             post.Display();
         }
@@ -61,28 +62,24 @@ namespace ConsoleAppProject.App04
         private void UnlikePosts()
         {
             ConsoleHelper.OutputTitle("Disliked a Post");
-            int id = (int)ConsoleHelper.InputNumber("please enter the post id > ", 0, Post.GetNumberOfPosts());
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the Post ID that you would like to Dislike > ",
+                                                                                      1, Post.GetNumberOfPosts());
 
             Post post = news.FindPost(id);
             post.Unlike();
 
-            ConsoleHelper.OutputTitle("The post has been Disliked");
+            ConsoleHelper.OutputTitle(" The Post has been Disliked");
             post.Display();
 
         }
 
         private void AddComment()
         {
-            int id = (int)ConsoleHelper.InputNumber(" please enter the post id > ",
-                                                       1, Post.GetNumberOfPosts());
-
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the Post ID that you would like to Comment on > ", 
+                                                                                         1, Post.GetNumberOfPosts());
             news.Addpostcomment(id);
         }
 
-        private void DisplayByDate()
-        {
-            throw new NotImplementedException();
-        }
 
         private void DisplayByAuthor()
         {
@@ -98,7 +95,7 @@ namespace ConsoleAppProject.App04
         {
             ConsoleHelper.OutputTitle($"Removing a Post");
 
-            int id = (int)ConsoleHelper.InputNumber(" please enter the post id > ",
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the Post ID you would like to Remove > ",
                                                        1, Post.GetNumberOfPosts());
             news.RemovePost(id);
         }
