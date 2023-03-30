@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -24,7 +25,7 @@ namespace ConsoleAppProject
             ConsoleHelper.OutputHeading(" BNU CO453 Applications Programming 2022-2023! ");
             Console.WriteLine();
 
-            string[] choices = {" Distance Converter"," BMI Calculator"," Student Grades"};
+            string[] choices = {" Distance Converter"," BMI Calculator"," Student Grades","Network App"};
 
             int choice = ConsoleHelper.SelectChoice(choices);
 
@@ -42,6 +43,11 @@ namespace ConsoleAppProject
             {
                 StudentGrades studentGrades = new StudentGrades();
                 studentGrades.MainMenu();
+            }
+            else if (choice == 4)
+            {
+                NetworkApp app04 = new NetworkApp();
+                app04.DisplayMenu();
             }
             else Console.WriteLine("Invalid Choice !");
         }
