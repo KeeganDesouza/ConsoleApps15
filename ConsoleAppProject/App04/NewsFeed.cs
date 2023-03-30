@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppProject.Helpers;
+using System;
 using System.Collections.Generic;
 
 
@@ -58,12 +59,51 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+            if (post == null)
+            {
+                Console.WriteLine($" \nPost with ID = {id} does not exist!!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe following Post = {id} has been removed!\n");
+
+                if(post is MessagePost mp)
+                {
+                    mp.Display();
+                }
+                else if(post is PhotoPost pp)
+                {
+                    pp.Display();
+                }
+                posts.Remove(post);
+            }
+        }
+
+        ///<summary>
+        ///
+        /// </summary>
+        public Post FindPost(int id) 
+        {
+            foreach(Post post in posts) 
+            {
+                if(post.PostId == id)
+                {
+                    return post;
+                }
+            }
+            return null;
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)
         ///</summary>
         public void Display()
         {
+            ConsoleHelper.OutputTitle("Displaying All Posts");
             // display all text posts
             foreach (Post post in posts)
             {
@@ -71,5 +111,32 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine();   // empty line between posts
             }
         }
+
+        public void Displayauthorsname(string author)
+        {
+            // display all text posts
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
+                post.Display();
+                Console.WriteLine();
+
+            }   
+        }
+
+        public void Addpostcomment(int id)
+        {
+            // display comment
+            foreach (Post post in posts)
+            {
+                if (post.PostId == id)
+                Console.Write(" Add your comment here > ");
+                string comment = Console.ReadLine();
+                Console.WriteLine();
+
+            }
+        }
+
     }
 }
+

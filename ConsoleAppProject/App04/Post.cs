@@ -5,48 +5,51 @@ namespace ConsoleAppProject.App04
 {
 	public class Post
 	{
-
-    private int likes;
-
-    private readonly List<String> comments;
-
+    
+    public int PostId { get; }
 
     // username of the post's author
-    public String Username { get; }
-    
-    public DateTime Timestamp { get; }
-    
+     public String Username { get; }
+     public DateTime Timestamp { get; }
+     
+     private static int instances = 0;
+     private int likes;
+
+     private readonly List<String> comments;
+
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="author"></param>
     public Post(string author)
     {
-      this.Username = author;
-      Timestamp = DateTime.Now;
+     instances++;
+     PostId = instances;
+
+     this.Username = author;
+     Timestamp = DateTime.Now;
 
       likes = 0;
       comments = new List<String>();
     }
 
-        /// <summary>
-        /// Record one more 'Like' indication from a user.
-        /// </summary>
-        public void Like()
-        {
-            likes++;
-        }
+    /// <summary>
+    /// Record one more 'Like' indication from a user.
+    /// </summary>
+    public void Like()
+    {
+      likes++;
+    }
 
-        ///<summary>
-        /// Record that a user has withdrawn his/her 'Like' vote.
-        ///</summary>
-        public void Unlike()
-        {
-            if (likes > 0)
-            {
-                likes--;
-            }
-        }
+    ///<summary>
+    /// Record that a user has withdrawn his/her 'Like' vote.
+    ///</summary>
+    public void Unlike()
+    {
+       if (likes > 0)
+       {
+        likes--;
+       }
+    }
 
         ///<summary>
         /// Add a comment to this post.
@@ -68,6 +71,7 @@ namespace ConsoleAppProject.App04
         public virtual void Display()
         {
             Console.WriteLine();
+            Console.WriteLine($"    Post ID: {PostId}");
             Console.WriteLine($"    Author: {Username}");
             Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
@@ -87,7 +91,9 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+              Console.WriteLine($" {comments.Count} Comments(s).");
+              foreach(string  id in comments) 
+              Console.WriteLine("  "+ id);
             }
         }
 
@@ -118,6 +124,11 @@ namespace ConsoleAppProject.App04
             {
                 return seconds + " seconds ago";
             }
+        }
+
+        public static int GetNumberOfPosts()
+        {
+            return instances;
         }
     }
 }

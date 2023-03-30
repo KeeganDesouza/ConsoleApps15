@@ -25,7 +25,7 @@ namespace ConsoleAppProject
             ConsoleHelper.OutputHeading(" BNU CO453 Applications Programming 2022-2023! ");
             Console.WriteLine();
 
-            string[] choices = {" Distance Converter"," BMI Calculator"," Student Grades","Network App"};
+            string[] choices = {" Distance Converter"," BMI Calculator"," Student Grades"," Network App"};
 
             int choice = ConsoleHelper.SelectChoice(choices);
 
