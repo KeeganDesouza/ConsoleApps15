@@ -64,7 +64,7 @@ namespace ConsoleAppProject.App04
         ///where it uses if statments to check if the post id exist 
         ///if it does not exist it outputs a prompt else if does exist it uses 
         ///the post id to remove the post and prompts the user that the post has been 
-        ///removed also it does check if its an message post or photo post and removes it from 
+        ///removed afurthermore it also checks if its an message post or photo post and removes it from 
         ///news feed class.
         /// </summary>
         public void RemovePost(int id)

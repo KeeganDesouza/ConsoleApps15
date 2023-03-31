@@ -11,20 +11,12 @@ namespace ConsoleAppProject.App04
     /// The Network class manages the input, ouput and reads out the data added via the classes
     ///</summary>
     ///<author>
-    ///  Keegan De souza
-    ///  version 0.1
+    /// Keegan De souza
+    /// version 0.1
     ///</author> 
     public class NetworkApp
     {   
         private NewsFeed news = new NewsFeed();
-
-        public NewsFeed NewsFeed
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         ////<summary>
         ///This is a MainMenu list that displays and
@@ -67,6 +59,8 @@ namespace ConsoleAppProject.App04
         ////<summary>
         ///This is a private method that is called out to like users posts through the help of the post ID 
         ///and then display the liked posts to the user.
+        ///This method outputs a title when the Post ID of a post has been inputted which then checks the post 
+        ///for it to be liked and display and output title to let the user know that the post has been liked.
         ///<summary>
         private void LikePosts()
         {
@@ -81,9 +75,10 @@ namespace ConsoleAppProject.App04
 
             post.Display();
         }
-        ////<summary>
-        ///This is a private method that is called out to Dislike users posts through the help of the post ID 
-        ///and then display the Diliked posts to the user.
+        ///This is a private method that is called out to like users posts through the help of the post ID 
+        ///and then display the Unliked posts to the user.
+        ///This method outputs a title when the Post ID of a post has been inputted which then checks the post 
+        ///for it to be Unliked and display and output title to let the user know that the post has been Unliked.
         ///<summary>
         private void UnlikePosts()
         {
@@ -101,6 +96,7 @@ namespace ConsoleAppProject.App04
 
         /// <summary>
         /// This is a private method used to input comments to a particular post via the help of the post ID.
+        /// this method gets the number of posts and comments on the chosen post.
         /// </summary>
         private void AddComment()
         {
@@ -124,6 +120,7 @@ namespace ConsoleAppProject.App04
 
         /// <summary>
         /// This is a private method used to remove a post via the help of the post ID.
+        /// this method gets the number of posts and removes the chosen post.
         /// </summary>
         private void RemovePost()
         {

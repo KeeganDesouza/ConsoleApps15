@@ -15,29 +15,21 @@ namespace ConsoleAppProject.App04
     /// </author>
     public class Post
 	{
-        public int PostId { get; }
+         public int PostId { get; }
 
-        // username of the post's author
+         // username of the post's author
          public String Username { get; }
          public DateTime Timestamp { get; }
 
-        public NewsFeed NewsFeed
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        private static int instances = 0;
+         private static int instances = 0;
          private int likes;
          //private int Unlikes;
 
          private readonly List<String> comments;
 
-    /// <summary>
-    /// Constructor for PostID, Timestamps, Likes, Dislike and comments
-    /// </summary>
+         /// <summary>
+        /// Constructor for PostID, Timestamps, Likes, Dislike and comments
+        /// </summary>
         public Post(string author)
         {
          instances++;
@@ -50,17 +42,17 @@ namespace ConsoleAppProject.App04
           comments = new List<String>();
         }
 
-    /// <summary>
-    /// Record one more 'Like' indication from a user.
-    /// </summary>
+        /// <summary>
+        /// Record one more 'Like' indication from a user.
+        /// </summary>
         public void Like()
         {
           likes++;
         }
 
-    ///<summary>
-    /// Record that a user has withdrawn his/her 'Like' vote.
-    ///</summary>
+        ///<summary>
+        /// Record that a user has withdrawn his/her 'Like' vote.
+        ///</summary>
         public void Unlike()
         {
            if (likes > 0)
