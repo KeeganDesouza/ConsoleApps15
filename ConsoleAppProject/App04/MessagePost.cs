@@ -36,7 +36,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// This public method  is used to store the message and output the message to the user
         /// </summary>
         public override void Display()
         {

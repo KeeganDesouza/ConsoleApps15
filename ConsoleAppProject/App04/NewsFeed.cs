@@ -16,8 +16,8 @@ namespace ConsoleAppProject.App04
     /// search or ordering functions.
     ///</summary>
     ///<author>
-    ///  Michael Kölling and David J. Barnes
-    ///  version 0.1
+    /// Keegan De souza
+    /// version 0.1
     ///</author> 
     public class NewsFeed
     {
@@ -26,7 +26,7 @@ namespace ConsoleAppProject.App04
         private readonly List<Post> posts;
 
         ///<summary>
-        /// Construct an empty news feed.
+        /// Constructed a premade news feed.
         ///</summary>
         public NewsFeed()
         {
@@ -59,6 +59,14 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        ///<summary>
+        ///Removes the post from the news feed.
+        ///where it uses if statments to check if the post id exist 
+        ///if it does not exist it outputs a prompt else if does exist it uses 
+        ///the post id to remove the post and prompts the user that the post has been 
+        ///removed also it does check if its an message post or photo post and removes it from 
+        ///news feed class.
+        /// </summary>
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
@@ -84,7 +92,9 @@ namespace ConsoleAppProject.App04
         }
 
         ///<summary>
-        ///
+        /// this is a public method used to find the posts 
+        /// where "for each statments" and "if statments" are used to find the post via 
+        /// the help of post id and return it to posts.
         /// </summary>
         public Post FindPost(int id) 
         {
@@ -100,7 +110,7 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
-        /// terminal. (To do: replace this later with display in web browser.)
+        /// terminal.
         ///</summary>
         public void Display()
         {
@@ -113,6 +123,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        ///<summary>
+        /// inputs the name of the authors and uses for each statments to get 
+        /// Posts elements to get the authors name and display its post.
+        ///</summary>
         public void Displayauthorsname(string author)
         {
             // display all text posts
@@ -123,7 +137,10 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine();
             }   
         }
-
+        ///<summary>
+        /// inputs the comment to a post and uses for each statments to get 
+        /// Posts elements to get the posts id and adds comment to the post.
+        ///</summary>
         public void Addpostcomment(int id)
         {
             // display comment

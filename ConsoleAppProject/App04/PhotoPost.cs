@@ -10,7 +10,7 @@ namespace ConsoleAppProject.App04
     /// Other data, such as author and time, are also stored.
     ///</summary>
     /// <author>
-    /// Michael Kölling and David J. Barnes
+    /// Keegan De souza
     /// @version 0.1
     /// </author>
     public class PhotoPost : Post
@@ -42,7 +42,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Displays the filename and caption.
         /// </summary>
         public override void Display()
         {

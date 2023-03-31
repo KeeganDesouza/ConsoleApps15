@@ -4,23 +4,39 @@ using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
 {
-	public class Post
+    ///<summary>
+    /// This class stores information about a post in a social network. 
+    /// The main part of the post consists of like, unlike, author. 
+    /// Other data, such as author and time, are also stored.
+    ///</summary>
+    /// <author>
+    /// Keegan De souza
+    /// @version 0.1
+    /// </author>
+    public class Post
 	{
-    
         public int PostId { get; }
 
         // username of the post's author
          public String Username { get; }
          public DateTime Timestamp { get; }
-     
-         private static int instances = 0;
+
+        public NewsFeed NewsFeed
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        private static int instances = 0;
          private int likes;
          //private int Unlikes;
 
          private readonly List<String> comments;
 
     /// <summary>
-    /// 
+    /// Constructor for PostID, Timestamps, Likes, Dislike and comments
     /// </summary>
         public Post(string author)
         {
@@ -87,8 +103,6 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine("     0 Likes on this post");
             }
 
-           
-            
             if (comments.Count == 0)
             {
                 Console.WriteLine("    No comments.");
@@ -134,6 +148,9 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// Returns the number of posts.
+        /// </summary>
         public static int GetNumberOfPosts()
         {
             return instances;

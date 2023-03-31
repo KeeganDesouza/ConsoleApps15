@@ -7,15 +7,33 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppProject.App04
 {
+    ///<summary>
+    /// The Network class manages the input, ouput and reads out the data added via the classes
+    ///</summary>
+    ///<author>
+    ///  Keegan De souza
+    ///  version 0.1
+    ///</author> 
     public class NetworkApp
     {   
         private NewsFeed news = new NewsFeed();
-        /// <summary>
-        /// 
-        /// </summary>
+
+        public NewsFeed NewsFeed
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        ////<summary>
+        ///This is a MainMenu list that displays and
+        ///Outputs the heading along with my name
+        ///it also holds the if statments to allow the user to choose from.
+        ///<summary>
         public void DisplayMenu()
         {
-            ConsoleHelper.OutputHeading(" Keegan's News Feed");
+            //choices to choose from the list
             string[] choices = new string[]
             {
                 "Post Message", "Post Image","Remove Post", 
@@ -27,8 +45,10 @@ namespace ConsoleAppProject.App04
 
             do
             {
+                ConsoleHelper.OutputHeading(" Keegan's News Feed");
                 int choice = ConsoleHelper.SelectChoice(choices);
 
+                //choices to choose from based on the numbers
                 switch (choice)
                 {
                     case 1: PostMessage(); break;
@@ -44,7 +64,10 @@ namespace ConsoleAppProject.App04
 
             } while (!wantToQuit);
         }
-
+        ////<summary>
+        ///This is a private method that is called out to like users posts through the help of the post ID 
+        ///and then display the liked posts to the user.
+        ///<summary>
         private void LikePosts()
         {
             ConsoleHelper.OutputTitle("Liked a Post");
@@ -58,7 +81,10 @@ namespace ConsoleAppProject.App04
 
             post.Display();
         }
-
+        ////<summary>
+        ///This is a private method that is called out to Dislike users posts through the help of the post ID 
+        ///and then display the Diliked posts to the user.
+        ///<summary>
         private void UnlikePosts()
         {
             ConsoleHelper.OutputTitle("Disliked a Post");
@@ -73,6 +99,9 @@ namespace ConsoleAppProject.App04
 
         }
 
+        /// <summary>
+        /// This is a private method used to input comments to a particular post via the help of the post ID.
+        /// </summary>
         private void AddComment()
         {
             int id = (int)ConsoleHelper.InputNumber(" Please enter the Post ID that you would like to Comment on > ", 
@@ -80,7 +109,9 @@ namespace ConsoleAppProject.App04
             news.Addpostcomment(id);
         }
 
-
+        /// <summary>
+        /// This is a private method used to input authors name and then output a particular authors posts.
+        /// </summary>
         private void DisplayByAuthor()
         {
             ConsoleHelper.OutputTitle($"Displaying By Author");
@@ -91,6 +122,9 @@ namespace ConsoleAppProject.App04
             news.Displayauthorsname(author);
         }
 
+        /// <summary>
+        /// This is a private method used to remove a post via the help of the post ID.
+        /// </summary>
         private void RemovePost()
         {
             ConsoleHelper.OutputTitle($"Removing a Post");
@@ -100,11 +134,21 @@ namespace ConsoleAppProject.App04
             news.RemovePost(id);
         }
 
+        /// <summary>
+        /// This is a private method used to display all posts that has been stored 
+        /// in the news feed class and also whatever input the user adds to the posts.
+        /// </summary>
         private void DisplayAll()
         {
             news.Display();
         }
 
+        /// <summary>
+        /// This is a private method used to post images
+        /// This method outputs the title and asks the user to input the authors name,
+        /// filename and caption for the post which is then stored in the news feed post list class
+        /// which is then transfer to add photo post method.
+        /// </summary>
         private void PostImage()
         {
             ConsoleHelper.OutputTitle("Posting an image/photo");
@@ -122,7 +166,12 @@ namespace ConsoleAppProject.App04
             ConsoleHelper.OutputTitle("You have just posted this image:");
             post.Display();
         }
-
+        /// <summary>
+        /// This is a private method used to post messages
+        /// This method outputs the title and asks the user to input the authors name,
+        /// and message post which is then stored in the news feed post list class
+        /// which is then transfer to add message posts.
+        /// </summary>
         private void PostMessage()
         {
             ConsoleHelper.OutputTitle("Posting an Message");
@@ -139,7 +188,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// This private method is used to input name 
+        /// where it outputs the authors name and returns it to the author.
         /// </summary>
         private string InputName()
         {
